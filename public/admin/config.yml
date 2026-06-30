@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  # Blog Posts
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "WeAct Team" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Testimonials
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Title/Role", name: "title", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image", required: false }
+
+  # Site Statistics (single file)
+  - name: "stats"
+    label: "Site Statistics"
+    files:
+      - name: "statistics"
+        label: "Key Statistics"
+        file: "content/stats/stats.json"
+        fields:
+          - { label: "Verifications Delivered", name: "verifications", widget: "string" }
+          - { label: "Cities Covered", name: "cities", widget: "string" }
+          - { label: "Field Executives", name: "executives", widget: "string" }
+          - { label: "Monthly Service Calls", name: "monthlyCalls", widget: "string" }
+          - { label: "Client Satisfaction (%)", name: "satisfaction", widget: "string" }
+          - { label: "On-Time TAT (%)", name: "tat", widget: "string" }
