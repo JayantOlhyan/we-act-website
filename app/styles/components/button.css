@@ -20,6 +20,8 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  min-height: 48px; /* Accessible touch target */
+  min-width: 48px;
 }
 
 .btn:disabled {
