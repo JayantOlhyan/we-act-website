@@ -58,9 +58,22 @@ p {
   max-width: var(--max-width-wide);
 }
 
-/* ── Section ── */
+body {
+  background-color: var(--color-secondary-dark) !important;
+  color: var(--color-white) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-white) !important;
+}
+
+p {
+  color: var(--color-gray-400) !important;
+}
+
 .section {
   padding-block: var(--space-20);
+  background-color: transparent !important;
 }
 
 .section--sm {
@@ -72,17 +85,30 @@ p {
 }
 
 .section--dark {
-  background-color: var(--color-secondary-dark);
-  color: var(--color-text-on-dark);
+  background-color: rgba(13, 13, 46, 0.45) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-white) !important;
 }
 
 .section--alt {
-  background-color: var(--color-bg-alt);
+  background-color: rgba(26, 26, 46, 0.3) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .section--primary {
-  background-color: var(--color-primary);
-  color: var(--color-text-on-primary);
+  background: linear-gradient(135deg, rgba(245, 124, 32, 0.75), rgba(255, 182, 39, 0.75)) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-white) !important;
+}
+
+.fluid-bg-canvas {
+  opacity: 0.75;
+  mix-blend-mode: screen;
 }
 
 /* ── Section Header ── */

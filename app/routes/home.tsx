@@ -56,6 +56,24 @@ export default function Home() {
       duration: 0.8,
       scrollTrigger: { trigger: workflowRef.current, start: "top 80%", once: true },
     });
+
+    // Services features animation
+    gsap.from(".feature-card", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.8,
+      scrollTrigger: { trigger: servicesRef.current, start: "top 80%", once: true },
+    });
+
+    // Testimonials animation
+    gsap.from(".testimonial-card", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 0.8,
+      scrollTrigger: { trigger: testimonialRef.current, start: "top 80%", once: true },
+    });
   }, { scope: heroRef });
 
   const explorerData: Record<string, { title: string; badge: string; sla: string; coverage: string; desc: string; bullet1: string; bullet2: string; status: string }> = {
@@ -180,15 +198,15 @@ export default function Home() {
       </section>
 
       {/* ── Stats Strip Section ── */}
-      <section className="section" ref={statsRef} style={{ backgroundColor: "var(--color-gray-50)", borderBottom: "1px solid var(--color-border)" }}>
+      <section className="section" ref={statsRef} style={{ backgroundColor: "rgba(13, 13, 26, 0.4)", borderBottom: "1px solid rgba(255, 255, 255, 0.05)", backdropFilter: "blur(8px)", WebkitBackdropFilter: "blur(8px)" }}>
         <div className="container">
           <div className="grid grid--4 gap-6">
             {statsList.map((stat, i) => (
-              <div key={i} className="stat-card" style={{ padding: "var(--space-6)", backgroundColor: "var(--color-white)", borderRadius: "var(--radius-lg)", border: "1px solid var(--color-border)", textAlign: "center", boxShadow: "var(--shadow-sm)" }}>
-                <div style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", fontWeight: "var(--font-extrabold)", color: "var(--color-primary)", marginBottom: "var(--space-1)" }}>
+              <div key={i} className="stat-card">
+                <div className="stat-card__value">
                   {stat.display}
                 </div>
-                <div style={{ fontSize: "var(--text-sm)", fontWeight: "var(--font-semibold)", color: "var(--color-text)" }}>
+                <div className="stat-card__label">
                   {stat.label}
                 </div>
               </div>
@@ -375,13 +393,18 @@ export default function Home() {
 
           <div className="grid grid--2 gap-8">
             {testimonials.map((t, index) => (
-              <div key={index} className="card" style={{ padding: "var(--space-8)", backgroundColor: "var(--color-white)", border: "1px solid var(--color-border)" }}>
-                <p style={{ fontStyle: "italic", color: "var(--color-text)", marginBottom: "var(--space-6)", lineHeight: "var(--leading-relaxed)", fontSize: "var(--text-lg)" }}>
+              <div key={index} className="testimonial-card">
+                <p className="testimonial-card__quote">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div>
-                  <div style={{ fontWeight: "var(--font-semibold)", color: "var(--color-text)" }}>{t.name}</div>
-                  <div style={{ fontSize: "var(--text-xs)", color: "var(--color-text-muted)" }}>{t.title}, {t.company}</div>
+                <div className="testimonial-card__author">
+                  <div className="testimonial-card__avatar">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="testimonial-card__name">{t.name}</div>
+                    <div className="testimonial-card__role">{t.title}, {t.company}</div>
+                  </div>
                 </div>
               </div>
             ))}
