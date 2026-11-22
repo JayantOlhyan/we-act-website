@@ -6,13 +6,19 @@ Production lead-capture website for **WeAct Global Solutions (OPC) Pvt. Ltd.** �
 
 ## Project Status
 
-- [x] **Design Foundation (`DESIGN.md`)**: Locked Obsidian Charcoal (`#060608` / `#282828`) + WeAct Signal Orange (`#F08030`) & Warm Amber (`#FFA352`) token system, AA-compliant contrast roles, typography (`Playfair Display`, `Inter`, `JetBrains Mono`), and compliance guardrails.
+- [x] **Design Foundation (`DESIGN.md`)**: Locked Daylight Architectural White (`#FDFDFB` / `#F5F3EE` / `#FFFFFF`) + WeAct Charcoal (`#282828`) + WeAct Signal Orange (`#F08030`) & Warm Amber (`#FFA14E`) token system, AA-compliant contrast roles, typography (`Playfair Display`, `Inter`, `JetBrains Mono`), and compliance guardrails.
 - [x] **Competitive Research (`research/`)**: Reference website benchmarks (`Perfios.ai` live 3D-scroll teardown, `AuthBridge`, `Netrika Consulting`, `IDfy`, `Signzy`, `Kroll`, `First Advantage`, `SGS`) and copy/compliance/attribution matrix.
-- [x] **Perfios-Inspired 3D Scroll & Interactive Architecture**:
-  - Rotating Hero buyer-sector slot (`RotatingHeroWord`) paired with 2-column dark proof-tile showcase
-  - 5-chapter desktop sticky CSS 3D `preserve-3d` WeAct Prism (`WeActPrism3D` + `HomeScrollStory`) with `motion/react` `useScroll` + `useSpring` and reduced-motion fallbacks
-  - Interactive Sector Coverage Switcher (`Field Coverage Across Regulated Sectors`) and Verification Lifecycle Switcher (`We Simplify Your Field Verification Lifecycles`)
-  - Compact interactive 3D prism accent across service landing pages (`/verification-kyc`, `/merchant-onboarding`, `/field-it-support`)
+- [x] **Bespoke Editorial Photography & 3D Assets (`public/images/`)**:
+  - `field-verification.jpg` — On-site Indian field verification executive capturing geo-tagged CPV/KYC proof
+  - `merchant-audit.jpg` — Retail merchant onboarding & POS verification audit
+  - `field-it-engineer.jpg` — Onsite enterprise IT engineer servicing branch hardware
+  - `architectural-prism.jpg` — Studio macro 3D render of WeAct charcoal & signal-orange verification monolith on alabaster white
+- [x] **Daylight 3D Scroll & Interactive B2B Architecture**:
+  - Layered Daylight Hero with rotating buyer-sector slot (`RotatingHeroWord`), editorial field photography, live Geo-Tagged Field Capture dossier strip, and 4-metric proof bar
+  - Three Flagship Field Practice photographic cards (`Verification, CPV & KYC`, `Merchant Onboarding & Audits`, `Onsite Field IT Support`)
+  - 5-chapter desktop sticky CSS 3D `preserve-3d` WeAct Prism (`WeActPrism3D` + `HomeScrollStory`) with `motion/react` `useScroll` + `useSpring`, Field-to-ERP Architecture Flow diagram, interactive Sector Switcher (with live photography), and interactive Verification Lifecycle Console (with live `SPECIMEN` dossier checkpoints)
+  - Interactive **PAN-India PIN-Code & Zone Coverage Explorer** (`IndiaCoverageConsole`) with 4 regional operating zones and an interactive SVG India PIN-grid dispatch map
+  - ISO 9001:2015 Quality & Security Controls matrix paired with the statutory **Company at a Glance** ledger
 - [x] **All 7 Routes Built**:
   - `/` — Main landing page
   - `/verification-kyc` — CPV, due diligence, KYC visits, background verification

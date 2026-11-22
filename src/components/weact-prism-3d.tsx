@@ -125,8 +125,9 @@ function PrismBox({
 }
 
 /**
- * Persistent 3D WeAct architectural prism monolith built with pure CSS preserve-3d
- * and GPU-composited transforms driven by scroll progress or subtle desktop pointer tilt.
+ * Daylight Architectural 3D WeAct Prism Monolith:
+ * Anodized Signal Orange upper block + Brushed Graphite Charcoal lower pillar
+ * suspended over a crisp architectural coordinate ring & studio contact shadow.
  */
 export function WeActPrism3D({
   scrollProgress,
@@ -141,7 +142,6 @@ export function WeActPrism3D({
   const fallbackProgress = useMotionValue(0.35);
   const activeProgress = scrollProgress ?? fallbackProgress;
 
-  // Bounded interactive pointer tilt (+-7 deg on fine pointers only)
   const rawPointerX = useMotionValue(0);
   const rawPointerY = useMotionValue(0);
   const pointerTiltY = useSpring(rawPointerX, { stiffness: 120, damping: 20 });
@@ -164,17 +164,17 @@ export function WeActPrism3D({
   const scrollRotateX = useTransform(
     activeProgress,
     [0, 0.3, 0.6, 0.85, 1],
-    [10, 6, 12, 14, 7]
+    [10, 6, 12, 14, 8]
   );
   const upperTwistZ = useTransform(
     activeProgress,
     [0, 0.35, 0.7, 1],
-    [-16, -24, -12, -18]
+    [-15, -22, -12, -17]
   );
   const upperLiftY = useTransform(
     activeProgress,
     [0, 0.35, 0.7, 1],
-    [-8, -18, -4, -10]
+    [-8, -16, -5, -10]
   );
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -207,29 +207,39 @@ export function WeActPrism3D({
       aria-hidden="true"
       className={cn(
         "weact-prism-scene relative flex items-center justify-center select-none",
-        isCompact ? "h-[280px] w-[240px]" : "h-[420px] w-[320px]",
+        isCompact ? "h-[300px] w-[260px]" : "h-[440px] w-[340px]",
         className
       )}
     >
-      {/* Subtle warm copper-orange ambient depth behind monolith */}
+      {/* Architectural coordinate ring & warm daylight studio backplate */}
       <div
-        className="pointer-events-none absolute inset-6 rounded-full opacity-55 blur-3xl"
+        className="pointer-events-none absolute inset-4 rounded-full border border-border-strong/60"
         style={{
           background:
-            "radial-gradient(circle, color-mix(in oklch, var(--accent) 26%, transparent) 0%, transparent 72%)",
+            "radial-gradient(circle, color-mix(in oklch, var(--accent) 16%, var(--surface)) 0%, transparent 72%)",
+        }}
+      />
+      <div className="pointer-events-none absolute inset-12 rounded-full border border-dashed border-border-strong/70" />
+
+      {/* Studio contact shadow on white ground */}
+      <div
+        className="pointer-events-none absolute bottom-5 left-1/2 h-8 w-48 -translate-x-1/2 rounded-full blur-xl"
+        style={{
+          background:
+            "radial-gradient(ellipse, color-mix(in oklch, var(--foreground) 26%, transparent) 0%, transparent 75%)",
         }}
       />
 
-      {/* Diagonal hairline beam across prism junction */}
+      {/* Diagonal copper-orange hairline ray across prism junction */}
       <motion.div
-        style={{ opacity: prefersReducedMotion ? 0.5 : beamOpacity }}
-        className="pointer-events-none absolute left-1/2 top-[43%] h-[1px] w-[360px] -translate-x-1/2 -rotate-[24deg]"
+        style={{ opacity: prefersReducedMotion ? 0.65 : beamOpacity }}
+        className="pointer-events-none absolute left-1/2 top-[43%] h-[1.5px] w-[340px] -translate-x-1/2 -rotate-[24deg]"
       >
         <div
           className="h-full w-full"
           style={{
             background:
-              "linear-gradient(90deg, transparent 0%, color-mix(in oklch, var(--accent-bright) 75%, transparent) 48%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, var(--accent-deep) 48%, transparent 100%)",
           }}
         />
       </motion.div>
@@ -238,13 +248,13 @@ export function WeActPrism3D({
         className="weact-prism-3d relative flex flex-col items-center gap-3"
         style={
           prefersReducedMotion
-            ? { transform: "rotateX(8deg) rotateY(-22deg)" }
+            ? { transform: "rotateX(9deg) rotateY(-24deg)" }
             : scrollProgress
               ? { rotateY: scrollRotateY, rotateX: scrollRotateX }
               : { rotateY: pointerTiltY, rotateX: pointerTiltX, rotateZ: 0 }
         }
       >
-        {/* Upper faceted WeAct Signal Orange wedge block */}
+        {/* Upper faceted WeAct Signal Orange anodized wedge block */}
         <motion.div
           className="weact-prism-3d"
           style={
@@ -257,24 +267,25 @@ export function WeActPrism3D({
         >
           <PrismBox
             {...upperDims}
-            frontBg="linear-gradient(145deg, var(--accent-bright) 0%, var(--accent) 55%, var(--accent-deep) 100%)"
+            frontBg="linear-gradient(145deg, var(--accent-bright) 0%, var(--accent) 58%, var(--accent-deep) 100%)"
             sideBg="linear-gradient(180deg, var(--accent) 0%, var(--accent-deep) 100%)"
             topBg="linear-gradient(135deg, var(--accent-bright) 0%, var(--accent) 100%)"
             backBg="var(--accent-deep)"
-            borderColor="color-mix(in oklch, var(--accent-bright) 48%, transparent)"
-            glowShadow="0 20px 45px -18px color-mix(in oklch, var(--accent) 38%, transparent)"
+            borderColor="color-mix(in oklch, var(--accent-deep) 45%, var(--surface-elevated))"
+            glowShadow="0 18px 38px -16px color-mix(in oklch, var(--accent-deep) 35%, transparent)"
           />
         </motion.div>
 
-        {/* Lower architectural WeAct Charcoal pillar */}
+        {/* Lower architectural Brushed Graphite Charcoal pillar */}
         <div className="weact-prism-3d">
           <PrismBox
             {...lowerDims}
-            frontBg="linear-gradient(165deg, var(--surface-elevated) 0%, var(--brand-charcoal) 60%, var(--background) 100%)"
-            sideBg="linear-gradient(180deg, color-mix(in oklch, var(--accent) 20%, var(--brand-charcoal)) 0%, var(--background) 100%)"
-            topBg="linear-gradient(135deg, color-mix(in oklch, var(--accent) 34%, var(--surface-elevated)) 0%, var(--brand-charcoal) 100%)"
-            backBg="var(--surface-dark)"
-            borderColor="color-mix(in oklch, var(--accent) 26%, var(--border-strong))"
+            frontBg="linear-gradient(160deg, var(--brand-charcoal) 0%, var(--foreground) 75%, var(--surface-dark) 100%)"
+            sideBg="linear-gradient(180deg, color-mix(in oklch, var(--accent) 22%, var(--brand-charcoal)) 0%, var(--foreground) 100%)"
+            topBg="linear-gradient(135deg, color-mix(in oklch, var(--accent) 36%, var(--brand-charcoal)) 0%, var(--foreground) 100%)"
+            backBg="var(--foreground)"
+            borderColor="color-mix(in oklch, var(--surface-elevated) 24%, var(--brand-charcoal))"
+            glowShadow="0 24px 44px -18px color-mix(in oklch, var(--foreground) 32%, transparent)"
           />
         </div>
       </motion.div>

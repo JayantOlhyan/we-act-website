@@ -15,6 +15,9 @@ export default function VerificationKycPage() {
       buyerLine="For banks, NBFCs, life & general insurers"
       headline="Physical CPV and KYC visits that close on SLA."
       subheadline="When digital checks are not enough, WeAct Global dispatches PIN-mapped, regional-language executives across 10,000+ PIN codes for geo-tagged field verification and due diligence."
+      heroImage="/images/field-verification.jpg"
+      heroImageAlt="WeAct Global field executive performing an on-site CPV and physical KYC check"
+      heroImageCaption="Geo-tagged CPV & KYC verification across 10,000+ PIN codes"
       deliverablesHeading="Verification & due diligence capabilities"
       deliverablesIntro="Every visit follows documented consent protocols and returns geo-tagged evidence through encrypted channels."
       deliverables={[

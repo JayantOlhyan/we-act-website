@@ -15,6 +15,9 @@ export default function MerchantOnboardingPage() {
       buyerLine="For payment aggregators, payment gateways & fintechs"
       headline="Verify merchant premises before you activate settlement."
       subheadline="WeAct Global runs PAN-India physical merchant onboarding visits, signage and business-activity checks, and third-party audits with geo-tagged proof."
+      heroImage="/images/merchant-audit.jpg"
+      heroImageAlt="Field audit specialist verifying retail merchant premises and POS counter"
+      heroImageCaption="Physical merchant premises & payment gateway audit"
       deliverablesHeading="Merchant verification & third-party audit scope"
       deliverablesIntro="Built for risk, onboarding, and compliance teams needing reliable physical checks across metros and Tier II/III towns."
       deliverables={[

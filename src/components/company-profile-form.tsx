@@ -122,7 +122,7 @@ export function CompanyProfileForm() {
 
   if (unlocked) {
     return (
-      <div className="rounded-lg border border-success/40 bg-surface p-6 sm:p-8">
+      <div className="weact-card-elevated rounded-xl border-success/40 p-6 sm:p-8">
         <div className="flex items-start gap-3">
           <CheckCircle2
             className="mt-0.5 size-6 shrink-0 text-success"
@@ -170,7 +170,7 @@ export function CompanyProfileForm() {
   }
 
   return (
-    <div className="rounded-lg border border-border bg-surface p-6 sm:p-8">
+    <div className="weact-card-elevated rounded-xl p-6 sm:p-8">
       <div className="flex items-center gap-2.5 text-sm font-medium text-accent-text">
         <FileText className="size-4" aria-hidden="true" />
         <span>Vendor empanelment PDF (5 pages)</span>
@@ -271,11 +271,11 @@ export function CompanyProfileForm() {
           </div>
         </div>
 
-        <div className="rounded-sm border border-border bg-background/60 p-3.5">
+        <div className="rounded-md border border-border bg-surface p-3.5">
           <label className="flex items-start gap-3 text-sm leading-snug text-foreground cursor-pointer">
             <input
               type="checkbox"
-              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-accent"
+              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-primary"
               aria-invalid={Boolean(errors.consent)}
               {...register("consent")}
             />

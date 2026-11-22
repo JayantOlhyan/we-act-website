@@ -119,6 +119,15 @@ export const SECURITY_CONTROLS = [
   },
 ] as const;
 
+export const COMPANY_AT_A_GLANCE = [
+  { label: "Legal name", value: "WeAct Global Solutions (OPC) Pvt. Ltd." },
+  { label: "Quality certification", value: "ISO 9001:2015 Certified" },
+  { label: "Corporate Identity (CIN)", value: "U74999DL2022OPC398570" },
+  { label: "GST Registration (GSTIN)", value: "07AADCW2621H1ZI" },
+  { label: "Turnaround commitment", value: "48-72 hours (subject to scope & SLA)" },
+  { label: "Registered headquarters", value: "Kirti Nagar Industrial Area, New Delhi 110015" },
+] as const;
+
 /**
  * Industry verticals served — public-safe until written client logo/name permissions are obtained.
  */
@@ -129,6 +138,8 @@ export const INDUSTRY_VERTICALS = [
     scope: "Customer Profile Verification (CPV), due diligence, KYC visits, and collection & recovery assistance.",
     href: "/verification-kyc",
     cta: "Explore Verification & KYC",
+    image: "/images/field-verification.jpg",
+    imageCaption: "On-ground residential & office CPV visit with geo-tagged timestamp",
     highlights: [
       {
         title: "Customer Profile Verification (CPV)",
@@ -146,6 +157,8 @@ export const INDUSTRY_VERTICALS = [
     scope: "PAN-India physical KYC visits, document validation, and field claim/profile verification.",
     href: "/verification-kyc",
     cta: "Explore Insurance KYC",
+    image: "/images/field-verification.jpg",
+    imageCaption: "PAN-India policyholder KYC & document validation across Tier I-III towns",
     highlights: [
       {
         title: "Nationwide Physical KYC Visits",
@@ -163,6 +176,8 @@ export const INDUSTRY_VERTICALS = [
     scope: "Physical merchant onboarding verification, premises checks, and payment gateway compliance visits.",
     href: "/merchant-onboarding",
     cta: "Explore Merchant Onboarding",
+    image: "/images/merchant-audit.jpg",
+    imageCaption: "Physical merchant premises, counter, and signage verification before settlement activation",
     highlights: [
       {
         title: "Merchant Premises Authentication",
@@ -180,6 +195,8 @@ export const INDUSTRY_VERTICALS = [
     scope: "Onsite field engineers for laptops, desktops, and printers under ticketed SLA frameworks.",
     href: "/field-it-support",
     cta: "Explore Field IT Support",
+    image: "/images/field-it-engineer.jpg",
+    imageCaption: "Onsite hardware & endpoint support engineer dispatched under centralised ticket SLA",
     highlights: [
       {
         title: "Multi-City Onsite Engineers",
@@ -197,6 +214,8 @@ export const INDUSTRY_VERTICALS = [
     scope: "Third-party audits, dealer and distributor authentication, mystery audits, and risk assessment visits.",
     href: "/merchant-onboarding",
     cta: "Explore Third-Party Audits",
+    image: "/images/merchant-audit.jpg",
+    imageCaption: "Dealer authentication, stockist inspection, and mystery audit execution",
     highlights: [
       {
         title: "Dealer & Distributor Authentication",
@@ -214,55 +233,126 @@ export const LIFECYCLE_STAGES = [
   {
     id: "cpv",
     label: "Customer Profile Verification",
+    code: "WF-CPV-01",
     summary:
       "Validate applicant residence, office presence, and neighbourhood standing across 10,000+ PIN codes before credit approval or onboarding.",
     evidence: "Geo-tagged premises photographs, subject consent log, and structured CPV report.",
     sla: "48-72 hour turnaround commitment (subject to scope and agreed SLA).",
+    checkpoints: ["Address & occupancy confirmation", "Neighbour & landmark cross-check", "Geo-tagged exterior & entry photo"],
     href: "/verification-kyc",
   },
   {
     id: "kyc-due-diligence",
     label: "Physical KYC & Due Diligence",
+    code: "WF-KYC-02",
     summary:
       "Bridge digital onboarding gaps with verified physical KYC visits, original document sighting, and tele-verification across Tier I to Tier III locations.",
     evidence: "Time-stamped identity validation, encrypted mobile submission, and audit trail.",
     sla: "PIN-code executive mapping with fallback backup allocation.",
+    checkpoints: ["Original POI / POA sighting", "In-person applicant photograph", "DPDP consent attestation"],
     href: "/verification-kyc",
   },
   {
     id: "merchant-onboarding",
     label: "Merchant Onboarding Audits",
+    code: "WF-MRC-03",
     summary:
       "Confirm actual business existence, storefront signage, operational activity, and premises compliance for payment gateways and fintech aggregators.",
     evidence: "Storefront, interior, GPS coordinate stamp, and merchant verification checklist.",
     sla: "Centralised ticket tracking with real-time field movement visibility.",
+    checkpoints: ["Storefront signage & fascia photo", "Active stock & POS counter check", "Business category verification"],
     href: "/merchant-onboarding",
   },
   {
     id: "dealer-mystery",
     label: "Dealer & Mystery Audits",
+    code: "WF-AUD-04",
     summary:
       "Inspect third-party dealers, distributors, and retail touchpoints for authenticity, stocking standards, and brand-process adherence.",
     evidence: "Field audit scoring sheet, photographic proof, and escalation-ready summary.",
     sla: "Structured reporting across North, South, and East India zones.",
+    checkpoints: ["Channel partner existence check", "Warehouse / display compliance", "Unannounced mystery evaluation"],
     href: "/merchant-onboarding",
   },
   {
     id: "bgv",
     label: "Background Verification",
+    code: "WF-BGV-05",
     summary:
       "Execute physical address, reference, and document verification for workforce hiring, vendor empanelment, and partner risk screening.",
     evidence: "NDA-bound field verification record compliant with DPDP Act 2023 consent norms.",
     sla: "Two-way status updates aligned with client ERP and HR workflows.",
+    checkpoints: ["Permanent & current address visit", "Signed respondent statement", "Encrypted report delivery"],
     href: "/verification-kyc",
   },
   {
     id: "field-it",
     label: "Onsite Field IT Support",
+    code: "WF-ITS-06",
     summary:
       "Dispatch trained onsite engineers for laptops, desktops, and printers across distributed regional branches under ticketed SLAs.",
     evidence: "Signed service acknowledgement, geo-tagged attendance, and asset ticket closure.",
     sla: "Built-in escalation matrix and backup engineer coverage.",
+    checkpoints: ["Laptop, desktop & printer diagnosis", "Two-way client ERP ticket sync", "Branch sign-off & SLA closure"],
     href: "/field-it-support",
+  },
+] as const;
+
+export const INDIA_COVERAGE_ZONES = [
+  {
+    id: "north",
+    zone: "North India Zone",
+    hubs: "New Delhi HQ, NCR, Chandigarh, Jaipur, Lucknow, Dehradun, Ludhiana",
+    tiers: "Metros, Tier I, Tier II, Tier III & semi-urban PIN clusters",
+    languages: "Hindi, Punjabi, English & regional dialects",
+    capabilities: "Full CPV, KYC visits, due diligence, merchant audits & onsite IT engineer dispatch",
+    mapCoords: [
+      { city: "New Delhi HQ", cx: 145, cy: 112 },
+      { city: "Chandigarh", cx: 138, cy: 88 },
+      { city: "Jaipur", cx: 122, cy: 134 },
+      { city: "Lucknow", cx: 184, cy: 132 },
+    ],
+  },
+  {
+    id: "south",
+    zone: "South India Zone",
+    hubs: "Bengaluru, Chennai, Hyderabad, Kochi, Coimbatore, Visakhapatnam, Mysuru",
+    tiers: "Metro IT corridors, Tier I/II commercial hubs & rural taluk PIN codes",
+    languages: "Kannada, Tamil, Telugu, Malayalam & English",
+    capabilities: "Native-language CPV/KYC executives, fintech merchant onboarding & enterprise IT support",
+    mapCoords: [
+      { city: "Hyderabad", cx: 162, cy: 232 },
+      { city: "Bengaluru", cx: 144, cy: 274 },
+      { city: "Chennai", cx: 184, cy: 290 },
+      { city: "Kochi", cx: 138, cy: 320 },
+    ],
+  },
+  {
+    id: "east",
+    zone: "East & North-East Zone",
+    hubs: "Kolkata, Bhubaneswar, Patna, Ranchi, Guwahati, Siliguri, Jamshedpur",
+    tiers: "Eastern commercial centres, industrial towns & last-mile semi-urban districts",
+    languages: "Bengali, Odia, Assamese, Hindi & English",
+    capabilities: "Deep last-mile address verification, insurance KYC, distributor audits & branch IT",
+    mapCoords: [
+      { city: "Patna", cx: 218, cy: 145 },
+      { city: "Kolkata", cx: 244, cy: 184 },
+      { city: "Bhubaneswar", cx: 222, cy: 214 },
+      { city: "Guwahati", cx: 278, cy: 136 },
+    ],
+  },
+  {
+    id: "west-central",
+    zone: "West & Central Corridor",
+    hubs: "Mumbai, Pune, Ahmedabad, Surat, Nagpur, Indore, Bhopal, Raipur",
+    tiers: "BFSI headquarters, MSME industrial belts & high-volume merchant clusters",
+    languages: "Marathi, Gujarati, Hindi & English",
+    capabilities: "High-density BFSI due diligence, payment aggregator merchant checks & field IT",
+    mapCoords: [
+      { city: "Ahmedabad", cx: 96, cy: 174 },
+      { city: "Indore", cx: 134, cy: 180 },
+      { city: "Mumbai", cx: 102, cy: 224 },
+      { city: "Pune", cx: 114, cy: 238 },
+    ],
   },
 ] as const;

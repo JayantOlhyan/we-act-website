@@ -1,10 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Check, FileText, Lock } from "lucide-react";
+import { ArrowRight, Check, FileText, Lock, MapPin } from "lucide-react";
 import { ProofStrip } from "@/components/proof-strip";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CallLink, WhatsAppLink } from "@/components/tracked-contact-links";
 import { Reveal } from "@/components/reveal";
-import { WeActPrism3D } from "@/components/weact-prism-3d";
 import { buttonVariants } from "@/components/ui/button";
 import {
   EPLATFORM_CAPABILITIES,
@@ -23,6 +23,9 @@ export interface ServicePageProps {
   buyerLine: string;
   headline: string;
   subheadline: string;
+  heroImage: string;
+  heroImageAlt: string;
+  heroImageCaption: string;
   deliverablesHeading: string;
   deliverablesIntro: string;
   deliverables: ServiceDeliverable[];
@@ -36,6 +39,9 @@ export function ServicePageTemplate({
   buyerLine,
   headline,
   subheadline,
+  heroImage,
+  heroImageAlt,
+  heroImageCaption,
   deliverablesHeading,
   deliverablesIntro,
   deliverables,
@@ -44,11 +50,11 @@ export function ServicePageTemplate({
 }: ServicePageProps) {
   return (
     <>
-      {/* 1. Hero with Obsidian Vignette + Compact 3D Prism */}
+      {/* 1. Daylight White Hero with Editorial Photography */}
       <section className="border-b border-border bg-background weact-vignette">
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-8 px-5 py-12 sm:px-8 md:py-16 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-8">
-            <div className="inline-flex items-center rounded-full border border-border-strong bg-surface px-3.5 py-1 text-sm font-medium text-accent-text">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-12 sm:px-8 md:py-16 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center rounded-full border border-border-strong bg-surface-elevated px-3.5 py-1 text-sm font-medium text-accent-text">
               {buyerLine}
             </div>
             <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground leading-[1.1] sm:text-5xl">
@@ -75,8 +81,28 @@ export function ServicePageTemplate({
             </div>
           </div>
 
-          <div className="hidden lg:flex lg:col-span-4 lg:justify-center">
-            <WeActPrism3D variant="compact" />
+          <div className="lg:col-span-5">
+            <div className="weact-card-elevated overflow-hidden rounded-xl p-2">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-surface">
+                <Image
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  width={720}
+                  height={540}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
+              <div className="mt-2 flex items-center justify-between gap-2 rounded-lg bg-surface px-3.5 py-2.5 text-xs">
+                <span className="flex items-center gap-1.5 font-medium text-foreground">
+                  <MapPin className="size-3.5 text-accent-text" aria-hidden="true" />
+                  <span>{heroImageCaption}</span>
+                </span>
+                <span className="shrink-0 font-mono text-[11px] font-semibold text-accent-text">
+                  ISO 9001:2015
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -101,7 +127,7 @@ export function ServicePageTemplate({
               {deliverables.map((item) => (
                 <div
                   key={item.title}
-                  className="flex flex-col rounded-md border border-border bg-surface p-6 transition-colors duration-150 hover:border-border-strong"
+                  className="weact-card-elevated flex flex-col rounded-xl p-6 transition-colors duration-150 hover:border-border-strong"
                 >
                   <div className="flex items-start gap-2.5">
                     <Check
@@ -123,7 +149,7 @@ export function ServicePageTemplate({
       </section>
 
       {/* 4. How it works */}
-      <section className="border-b border-border bg-surface/60">
+      <section className="border-b border-border bg-surface">
         <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="max-w-2xl">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -138,7 +164,7 @@ export function ServicePageTemplate({
             {WORKFLOW_STEPS.map((item) => (
               <li
                 key={item.step}
-                className="rounded-md border border-border bg-surface p-6"
+                className="weact-card-elevated rounded-xl p-6"
               >
                 <span className="font-mono text-sm font-semibold text-accent-text tabular-nums">
                   {item.step}
@@ -153,9 +179,9 @@ export function ServicePageTemplate({
             ))}
           </ol>
 
-          <div className="mt-10 overflow-x-auto rounded-md border border-border bg-surface">
+          <div className="mt-10 overflow-x-auto rounded-xl border border-border bg-surface-elevated shadow-2xs">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-border bg-surface-elevated text-foreground">
+              <thead className="border-b border-border bg-brand-charcoal text-primary-foreground">
                 <tr>
                   <th className="px-5 py-3.5 font-semibold">E-platform capability</th>
                   <th className="px-5 py-3.5 font-semibold">How it supports delivery</th>
@@ -183,7 +209,7 @@ export function ServicePageTemplate({
         <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <div className="inline-flex items-center gap-2 text-sm font-medium text-accent-text">
+              <div className="inline-flex items-center gap-2 text-sm font-semibold text-accent-text">
                 <Lock className="size-4" aria-hidden="true" />
                 <span>Compliance &amp; data security</span>
               </div>
@@ -195,7 +221,7 @@ export function ServicePageTemplate({
               </p>
 
               {/* 6. Approved sector experience (no unapproved client names) */}
-              <div className="mt-8 rounded-md border border-border bg-surface p-5">
+              <div className="mt-8 rounded-xl border border-border bg-surface p-5">
                 <h3 className="text-base font-semibold text-foreground">
                   Sector experience &amp; NDA references
                 </h3>
@@ -216,9 +242,9 @@ export function ServicePageTemplate({
             </div>
 
             <div className="lg:col-span-7">
-              <div className="overflow-x-auto rounded-md border border-border bg-surface">
+              <div className="overflow-x-auto rounded-xl border border-border bg-surface-elevated shadow-2xs">
                 <table className="w-full text-left text-sm">
-                  <thead className="border-b border-border bg-surface-elevated text-foreground">
+                  <thead className="border-b border-border bg-brand-charcoal text-primary-foreground">
                     <tr>
                       <th className="px-5 py-3.5 font-semibold">Control area</th>
                       <th className="px-5 py-3.5 font-semibold">Operational practice</th>
@@ -244,7 +270,7 @@ export function ServicePageTemplate({
       </section>
 
       {/* 7 & 8. Enquiry form + WhatsApp + Call + Company Profile download */}
-      <section id="enquiry" className="scroll-mt-20 bg-surface/60">
+      <section id="enquiry" className="scroll-mt-20 bg-surface">
         <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
@@ -252,7 +278,7 @@ export function ServicePageTemplate({
             </div>
 
             <div className="flex flex-col gap-6 lg:col-span-5">
-              <div className="rounded-lg border border-border bg-surface p-6">
+              <div className="weact-card-elevated rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-foreground">
                   Prefer a direct conversation?
                 </h3>
@@ -272,8 +298,8 @@ export function ServicePageTemplate({
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border bg-surface p-6">
-                <div className="flex items-center gap-2 text-sm font-medium text-accent-text">
+              <div className="weact-card-elevated rounded-xl p-6">
+                <div className="flex items-center gap-2 text-sm font-semibold text-accent-text">
                   <FileText className="size-4" aria-hidden="true" />
                   <span>Vendor empanelment</span>
                 </div>

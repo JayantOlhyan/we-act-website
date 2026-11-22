@@ -15,6 +15,9 @@ export default function FieldItSupportPage() {
       buyerLine="For enterprises with distributed branches & endpoints"
       headline="Onsite IT engineers dispatched across 585+ cities."
       subheadline="Keep laptops, desktops, and printers operational across regional branches with PIN-mapped field engineers, centralised ticket management, and two-way ERP status updates."
+      heroImage="/images/field-it-engineer.jpg"
+      heroImageAlt="Onsite IT engineer configuring enterprise laptops at a regional branch office"
+      heroImageCaption="Ticketed onsite IT engineer dispatch across 585+ cities"
       deliverablesHeading="Onsite IT & field support capabilities"
       deliverablesIntro="Single-partner accountability for break-fix visits, endpoint upkeep, and multi-location enterprise rollouts."
       deliverables={[
