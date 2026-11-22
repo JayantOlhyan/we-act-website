@@ -10,9 +10,17 @@ import { buttonVariants } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
+const ENQUIRY_PAGES = new Set([
+  "/",
+  "/verification-kyc",
+  "/merchant-onboarding",
+  "/field-it-support",
+]);
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const enquiryHref = ENQUIRY_PAGES.has(pathname) ? "#enquiry" : "/#enquiry";
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
@@ -80,7 +88,7 @@ export function SiteHeader() {
             <span>{SITE_CONFIG.phoneDisplay}</span>
           </a>
           <Link
-            href="#enquiry"
+            href={enquiryHref}
             className={buttonVariants({ variant: "accent", size: "sm" })}
           >
             Request verification
@@ -130,7 +138,7 @@ export function SiteHeader() {
           </nav>
           <div className="mt-4 flex flex-col gap-2.5 border-t border-border pt-4">
             <Link
-              href="#enquiry"
+              href={enquiryHref}
               onClick={() => setMobileOpen(false)}
               className={buttonVariants({ variant: "accent" })}
             >

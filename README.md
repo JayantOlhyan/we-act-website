@@ -28,12 +28,11 @@ Production lead-capture website for **WeAct Global Solutions (OPC) Pvt. Ltd.** �
   - `/thank-you` — Post-submit confirmation + WhatsApp/Call escalation
   - `/privacy` — DPDP Act 2023 privacy notice
 - [x] **Attribution & Enquiry Pipeline**: First-touch UTM capture in `sessionStorage` (`weact_first_touch_utm`), hidden UTM fields, honeypot spam trap, server-side `zod` validation (`/api/enquiry`), Resend email hook, and Netlify Forms static registry (`public/__forms.html`) for exportable CSV enquiry logs.
-- [x] **Build, Lint & Visual/Interactive QA Verification**:
-  - WeAct logo added at `public/weact-logo.jpg`
+- [x] **Build, Lint & Multi-Aspect-Ratio Browser QA Verification**:
+  - WeAct logo added at `public/weact-logo.jpg` and official 5-page vendor empanelment PDF wired at `public/WeAct_Global_Company_Profile_Vendor_Empanelment.pdf` (`HTTP 200`)
   - Verified `npm run typecheck` (`tsc --noEmit`), `npm run lint` (`0` warnings, `0` errors), and `npm run build` (all 13 static/dynamic routes compiled cleanly)
-  - Verified live in browser at desktop (`1440x900`) and mobile (`390x844`): `0` console errors, `0` failed network requests, single-line header navigation, `0` horizontal overflow on mobile, verified interactive tab switching in Sector & Lifecycle consoles, and spot-checked `/verification-kyc`, `/company-profile`, and `/privacy`
+  - Verified live across **5 aspect ratios** (`360x640` 9:16 mobile, `768x1024` 3:4 tablet portrait, `1024x768` 4:3 tablet landscape, `1280x800` 16:10 laptop, `1440x900`, and `1920x1080` 16:9 widescreen) and **all 7 routes** (`/`, `/verification-kyc`, `/merchant-onboarding`, `/field-it-support`, `/company-profile`, `/thank-you`, `/privacy`): `0` console errors, `0` failed network requests, `0` horizontal overflow at `360px`, container-locked 3D prism alignment, solid vertical buyer-sector reel, and cross-page `#enquiry` header routing
 - [ ] **Remaining Go-Live Items**:
-  - Drop final `WeAct_Global_Company_Profile_Vendor_Empanelment.pdf` into `public/`
   - Lighthouse mobile audit (>= 90 Performance & Accessibility)
   - Deploy to Netlify and point `weactglobal.com` DNS
 

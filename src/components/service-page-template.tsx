@@ -93,9 +93,9 @@ export function ServicePageTemplate({
                   priority
                 />
               </div>
-              <div className="mt-2 flex items-center justify-between gap-2 rounded-lg bg-surface px-3.5 py-2.5 text-xs">
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-lg bg-surface px-3.5 py-2.5 text-xs">
                 <span className="flex items-center gap-1.5 font-medium text-foreground">
-                  <MapPin className="size-3.5 text-accent-text" aria-hidden="true" />
+                  <MapPin className="size-3.5 shrink-0 text-accent-text" aria-hidden="true" />
                   <span>{heroImageCaption}</span>
                 </span>
                 <span className="shrink-0 font-mono text-[11px] font-semibold text-accent-text">

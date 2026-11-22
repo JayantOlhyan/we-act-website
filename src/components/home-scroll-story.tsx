@@ -60,13 +60,12 @@ export function HomeScrollStory() {
     restDelta: 0.001,
   });
 
-  // Desktop sticky 3D monolith choreography across 5 narrative chapters on Daylight White:
-  // Ch1 (Right) -> Ch2 (Left beside E-platform console) -> Ch3 (Left beside Industry Switcher)
-  // -> Ch4 (Right beside Lifecycle Switcher) -> Ch5 (Right opposite Closing CTA)
+  // Container-locked pixel choreography so 1280px, 1440px, 1920px, and 2560px monitors
+  // keep the 3D monolith aligned inside the 1280px grid without drifting into outer margins
   const prismX = useTransform(
     smoothProgress,
     [0, 0.08, 0.19, 0.56, 0.72, 1],
-    ["27vw", "27vw", "-31vw", "-31vw", "28vw", "26vw"]
+    ["370px", "370px", "-420px", "-420px", "380px", "360px"]
   );
   const prismScale = useTransform(
     smoothProgress,
@@ -94,16 +93,16 @@ export function HomeScrollStory() {
 
   return (
     <div ref={trackRef} className="relative border-b border-border bg-background">
-      {/* Desktop sticky 3D stage layer on Daylight White */}
+      {/* Desktop sticky 3D stage layer on Daylight White (xl: 1280px+ where side-by-side 3D gutter has full room; <1280px uses clean full-width layout + inline 3D prism) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none hidden lg:block sticky top-0 z-0 h-screen overflow-hidden weact-vignette"
+        className="pointer-events-none hidden xl:block sticky top-0 z-0 h-screen overflow-hidden weact-vignette"
       >
         <div className="mx-auto flex h-full max-w-[1280px] items-center justify-center px-8">
           <motion.div
             style={
               prefersReducedMotion
-                ? { transform: "translateX(27vw)" }
+                ? { transform: "translateX(370px)" }
                 : { x: prismX, scale: prismScale, opacity: prismOpacity }
             }
           >
@@ -117,10 +116,10 @@ export function HomeScrollStory() {
       </div>
 
       {/* Foreground narrative chapters */}
-      <div className="relative z-10 lg:-mt-[100vh]">
+      <div className="relative z-10 xl:-mt-[100vh]">
         {/* CHAPTER 1: Operating Backbone + Studio 3D Hardware Card */}
-        <section className="border-b border-border lg:min-h-[84vh] lg:flex lg:items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
+        <section className="border-b border-border xl:min-h-[84vh] xl:flex xl:items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 xl:py-24">
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <p className="text-sm font-semibold text-accent-text">
@@ -201,8 +200,8 @@ export function HomeScrollStory() {
                 </div>
               </div>
 
-              {/* Mobile inline 3D emblem */}
-              <div className="flex justify-center lg:hidden">
+              {/* Mobile & Tablet (<1280px) inline 3D emblem */}
+              <div className="flex justify-center lg:col-span-5 xl:hidden">
                 <WeActPrism3D variant="compact" />
               </div>
             </div>
@@ -210,13 +209,13 @@ export function HomeScrollStory() {
         </section>
 
         {/* CHAPTER 2: Technology-Enabled Delivery & Field-to-ERP Architecture Console */}
-        <section className="border-b border-border bg-surface/65 lg:bg-transparent lg:min-h-[90vh] lg:flex lg:items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
-              <div className="hidden lg:block lg:col-span-4" />
+        <section className="border-b border-border bg-surface/65 xl:bg-transparent xl:min-h-[90vh] xl:flex xl:items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 xl:py-24">
+            <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:items-center">
+              <div className="hidden xl:block xl:col-span-4" />
 
               <motion.div
-                className="lg:col-span-8 weact-prism-scene"
+                className="xl:col-span-8 weact-prism-scene"
                 style={
                   prefersReducedMotion
                     ? undefined
@@ -328,13 +327,13 @@ export function HomeScrollStory() {
         </section>
 
         {/* CHAPTER 3: Interactive Sector Switcher with Editorial Photography (Perfios Stage 6 pattern) */}
-        <section className="border-b border-border lg:min-h-[88vh] lg:flex lg:items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
-              {/* Left gutter reserved for sticky 3D Prism */}
-              <div className="hidden lg:block lg:col-span-3" />
+        <section className="border-b border-border xl:min-h-[88vh] xl:flex xl:items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 xl:py-24">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-12 xl:items-start">
+              {/* Left gutter reserved for sticky 3D Prism on xl: (1280px+) */}
+              <div className="hidden xl:block xl:col-span-3" />
 
-              <div className="lg:col-span-9">
+              <div className="xl:col-span-9">
                 <p className="text-sm font-semibold text-accent-text">
                   03 | Regulated Industry Workflows
                 </p>
@@ -448,10 +447,10 @@ export function HomeScrollStory() {
         </section>
 
         {/* CHAPTER 4: Interactive Verification Lifecycle Switcher + Field Dossier Specimen (Perfios Stage 7/8) */}
-        <section className="border-b border-border bg-surface/65 lg:bg-transparent lg:min-h-[88vh] lg:flex lg:items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 lg:py-24">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
-              <div className="lg:col-span-8">
+        <section className="border-b border-border bg-surface/65 xl:bg-transparent xl:min-h-[88vh] xl:flex xl:items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 xl:py-24">
+            <div className="grid grid-cols-1 gap-8 xl:grid-cols-12 xl:items-start">
+              <div className="xl:col-span-8">
                 <p className="text-sm font-semibold text-accent-text">
                   04 | End-to-End Field Verification Lifecycles
                 </p>
@@ -569,17 +568,17 @@ export function HomeScrollStory() {
                 </div>
               </div>
 
-              {/* Right gutter reserved for sticky 3D prism */}
-              <div className="hidden lg:block lg:col-span-4" />
+              {/* Right gutter reserved for sticky 3D prism on xl: */}
+              <div className="hidden xl:block xl:col-span-4" />
             </div>
           </div>
         </section>
 
         {/* CHAPTER 5: Closing Transformation Lead-In */}
-        <section className="lg:min-h-[70vh] lg:flex lg:items-center">
-          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 lg:py-20">
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
-              <div className="lg:col-span-7">
+        <section className="xl:min-h-[70vh] xl:flex xl:items-center">
+          <div className="mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 xl:py-20">
+            <div className="grid grid-cols-1 gap-10 xl:grid-cols-12 xl:items-center">
+              <div className="xl:col-span-7">
                 <p className="text-sm font-semibold text-accent-text">
                   05 | Direct Director Engagement
                 </p>

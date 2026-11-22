@@ -33,33 +33,33 @@ export default function CompanyProfilePage() {
               Everything your vendor onboarding and risk committees need to evaluate WeAct Global Solutions (OPC) Pvt. Ltd. in one concise 5-page PDF.
             </p>
 
-            <div className="mt-6 rounded-md border border-border bg-surface p-5">
+            <div className="mt-6 weact-card-elevated rounded-xl p-5">
               <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
                 <ShieldCheck className="size-4 text-accent-text" aria-hidden="true" />
                 <span>Company at a glance</span>
               </div>
               <dl className="mt-3 divide-y divide-border text-sm">
-                <div className="flex justify-between gap-4 py-2">
+                <div className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:justify-between sm:gap-4">
                   <dt className="text-muted-foreground">Legal name</dt>
-                  <dd className="text-right font-medium text-foreground">
+                  <dd className="font-medium text-foreground sm:text-right">
                     {SITE_CONFIG.legalName}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4 py-2">
+                <div className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:justify-between sm:gap-4">
                   <dt className="text-muted-foreground">Certification</dt>
-                  <dd className="font-mono text-foreground">
+                  <dd className="font-mono text-foreground sm:text-right">
                     {SITE_CONFIG.certification}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4 py-2">
+                <div className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:justify-between sm:gap-4">
                   <dt className="text-muted-foreground">CIN</dt>
-                  <dd className="font-mono text-xs text-foreground">
+                  <dd className="font-mono text-xs text-foreground sm:text-right">
                     {SITE_CONFIG.cin}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-4 py-2">
+                <div className="flex flex-col gap-0.5 py-2.5 sm:flex-row sm:justify-between sm:gap-4">
                   <dt className="text-muted-foreground">GSTIN</dt>
-                  <dd className="font-mono text-xs text-foreground">
+                  <dd className="font-mono text-xs text-foreground sm:text-right">
                     {SITE_CONFIG.gstin}
                   </dd>
                 </div>

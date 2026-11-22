@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useReducedMotion } from "motion/react";
 
 const BUYER_SECTORS = [
   "Banks & NBFCs",
@@ -24,26 +24,32 @@ export function RotatingHeroWord() {
 
   if (prefersReducedMotion) {
     return (
-      <span className="block text-accent-text">
+      <span className="mt-1 block text-accent-text">
         Banks, Insurers &amp; Enterprises
       </span>
     );
   }
 
   return (
-    <span className="relative mt-1 block h-[1.22em] overflow-hidden text-accent-text">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={BUYER_SECTORS[index]}
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -24, opacity: 0 }}
-          transition={{ duration: 0.34, ease: "easeOut" }}
-          className="block whitespace-nowrap"
-        >
-          {BUYER_SECTORS[index]}
-        </motion.span>
-      </AnimatePresence>
+    <span
+      aria-live="polite"
+      className="relative mt-1 block h-[1.22em] overflow-hidden text-accent-text"
+    >
+      <span
+        className="block transition-transform duration-500 ease-out"
+        style={{
+          transform: `translate3d(0, -${index * 25}%, 0)`,
+        }}
+      >
+        {BUYER_SECTORS.map((sector) => (
+          <span
+            key={sector}
+            className="block h-[1.22em] leading-[1.22] whitespace-nowrap"
+          >
+            {sector}
+          </span>
+        ))}
+      </span>
     </span>
   );
 }

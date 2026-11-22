@@ -80,12 +80,12 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-5 py-12 sm:px-8 md:py-16 lg:grid-cols-12 lg:items-center lg:gap-12">
           {/* Left: Institutional Badge + Playfair Editorial H1 + Rotating Buyer Slot + CTAs */}
           <div className="lg:col-span-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border-strong bg-surface-elevated px-4 py-1.5 text-sm font-medium text-accent-text shadow-2xs">
-              <ShieldCheck className="size-4" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2 rounded-lg border border-border-strong bg-surface-elevated px-3 py-1.5 text-[11px] font-medium text-accent-text shadow-2xs sm:rounded-full sm:px-4 sm:text-sm">
+              <ShieldCheck className="size-3.5 shrink-0 sm:size-4" aria-hidden="true" />
               <span>ISO 9001:2015 Certified | PAN-India Field Operations</span>
             </div>
 
-            <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-foreground leading-[1.08] sm:text-5xl xl:text-[52px]">
+            <h1 className="mt-5 font-display text-[26px] font-semibold tracking-tight text-foreground leading-[1.12] sm:text-[40px] lg:text-[35px] xl:text-[46px]">
               PAN-India Field Verification for
               <RotatingHeroWord />
             </h1>
@@ -141,23 +141,24 @@ export default function HomePage() {
                     priority
                   />
 
-                  {/* Top-left live dispatch badge */}
-                  <div className="absolute left-3.5 top-3.5 inline-flex items-center gap-2 rounded-md border border-border bg-surface-elevated/95 px-3 py-1.5 text-xs font-medium text-foreground shadow-sm backdrop-blur-xs">
-                    <span className="size-2 rounded-full bg-success" aria-hidden="true" />
-                    <span>PIN-Code Mapped Field Network</span>
-                  </div>
+                  {/* Top overlay badges — responsive flex row so 360px screens never collide */}
+                  <div className="absolute inset-x-2.5 top-2.5 flex flex-wrap items-center justify-between gap-1.5 sm:inset-x-3.5 sm:top-3.5">
+                    <div className="inline-flex items-center gap-1.5 rounded-md border border-border bg-surface-elevated/95 px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm backdrop-blur-xs sm:px-3 sm:py-1.5 sm:text-xs">
+                      <span className="size-2 shrink-0 rounded-full bg-success" aria-hidden="true" />
+                      <span>PIN-Code Mapped Field Network</span>
+                    </div>
 
-                  {/* Top-right SLA pill */}
-                  <div className="absolute right-3.5 top-3.5 rounded-md bg-brand-charcoal/95 px-3 py-1.5 font-mono text-xs font-medium text-primary-foreground shadow-sm">
-                    48-72 Hr SLA
+                    <div className="rounded-md bg-brand-charcoal/95 px-2.5 py-1 font-mono text-[11px] font-medium text-primary-foreground shadow-sm sm:px-3 sm:py-1.5 sm:text-xs">
+                      48-72 Hr SLA
+                    </div>
                   </div>
                 </div>
 
                 {/* Live Geo-Tagged Verification Evidence Dossier Strip below photo */}
-                <div className="mt-2.5 rounded-xl border border-border bg-surface p-4">
+                <div className="mt-2.5 rounded-xl border border-border bg-surface p-3.5 sm:p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border pb-2.5">
                     <div className="flex items-center gap-2">
-                      <MapPin className="size-4 text-accent-text" aria-hidden="true" />
+                      <MapPin className="size-4 shrink-0 text-accent-text" aria-hidden="true" />
                       <span className="text-xs font-semibold text-foreground">
                         Geo-Tagged Field Capture | New Delhi (PIN 110015)
                       </span>
@@ -167,22 +168,22 @@ export default function HomePage() {
                     </span>
                   </div>
 
-                  <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
-                    <div>
+                  <div className="mt-3 grid grid-cols-1 gap-2 text-xs sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                    <div className="flex items-center justify-between gap-2 sm:block lg:flex xl:block">
                       <p className="text-muted-foreground">Workflow</p>
-                      <p className="mt-0.5 font-medium text-foreground">
+                      <p className="font-medium text-foreground sm:mt-0.5 lg:mt-0 xl:mt-0.5">
                         CPV / Physical KYC
                       </p>
                     </div>
-                    <div>
+                    <div className="flex items-center justify-between gap-2 sm:block lg:flex xl:block">
                       <p className="text-muted-foreground">Evidence</p>
-                      <p className="mt-0.5 font-mono text-foreground">
+                      <p className="font-mono text-foreground sm:mt-0.5 lg:mt-0 xl:mt-0.5">
                         GPS + Photo + Consent
                       </p>
                     </div>
-                    <div>
+                    <div className="flex items-center justify-between gap-2 sm:block lg:flex xl:block">
                       <p className="text-muted-foreground">Corporate CIN</p>
-                      <p className="mt-0.5 font-mono text-[11px] text-foreground truncate">
+                      <p className="font-mono text-[11px] text-foreground sm:mt-0.5 lg:mt-0 xl:mt-0.5">
                         {SITE_CONFIG.cin}
                       </p>
                     </div>
