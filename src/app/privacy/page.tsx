@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-background">
+    <section className="bg-background weact-vignette">
       <div className="mx-auto max-w-[820px] px-5 py-12 sm:px-8 md:py-16">
         <Link
           href="/"
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
           Privacy Notice (DPDP Act, 2023)
         </h1>
         <p className="mt-3 text-sm text-muted-foreground">
-          Data Fiduciary: {SITE_CONFIG.legalName} (CIN: {SITE_CONFIG.cin}) · Last updated: November 2026
+          Data Fiduciary: {SITE_CONFIG.legalName} (CIN: {SITE_CONFIG.cin}) | Last updated: November 2026
         </p>
 
         <div className="mt-8 space-y-8 text-base leading-relaxed text-foreground/90">

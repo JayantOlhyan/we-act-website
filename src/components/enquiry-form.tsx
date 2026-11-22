@@ -136,8 +136,8 @@ export function EnquiryForm({
   };
 
   return (
-    <div className="rounded-lg border border-border bg-surface-elevated p-6 sm:p-8">
-      <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+    <div className="rounded-lg border border-border bg-surface p-6 sm:p-8">
+      <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
         {heading}
       </h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -203,7 +203,7 @@ export function EnquiryForm({
             <Input
               id="enquiry-role"
               autoComplete="organization-title"
-              placeholder="e.g. Head of Risk / Ops / Procurement"
+              placeholder="e.g. Head of Risk / Ops"
               className="mt-1.5"
               aria-invalid={Boolean(errors.role)}
               {...register("role")}
@@ -257,12 +257,16 @@ export function EnquiryForm({
             <Label htmlFor="enquiry-service">Service needed</Label>
             <select
               id="enquiry-service"
-              className="mt-1.5 flex min-h-11 w-full rounded-sm border border-border-strong bg-surface-elevated px-3.5 py-2.5 text-base text-foreground transition-colors duration-150 hover:border-foreground/50"
+              className="mt-1.5 flex min-h-11 w-full rounded-sm border border-border-strong bg-surface-input px-3.5 py-2.5 text-base text-foreground transition-colors duration-150 hover:border-foreground/50"
               aria-invalid={Boolean(errors.service)}
               {...register("service")}
             >
               {SERVICE_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  className="bg-surface text-foreground"
+                >
                   {option.label}
                 </option>
               ))}
@@ -293,11 +297,11 @@ export function EnquiryForm({
           ) : null}
         </div>
 
-        <div className="rounded-sm border border-border bg-surface p-3.5">
+        <div className="rounded-sm border border-border bg-background/60 p-3.5">
           <label className="flex items-start gap-3 text-sm leading-snug text-foreground cursor-pointer">
             <input
               type="checkbox"
-              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-primary"
+              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-accent"
               aria-invalid={Boolean(errors.consent)}
               {...register("consent")}
             />

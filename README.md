@@ -6,8 +6,13 @@ Production lead-capture website for **WeAct Global Solutions (OPC) Pvt. Ltd.** �
 
 ## Project Status
 
-- [x] **Design Foundation (`DESIGN.md`)**: Locked charcoal (`#282828`) + WeAct Signal Orange (`#F08030`) token system, AA-compliant contrast roles, typography (`Plus Jakarta Sans`, `Inter`, `JetBrains Mono`), and compliance guardrails.
-- [x] **Competitive Research (`research/`)**: Reference website benchmarks (`AuthBridge`, `Netrika Consulting`, `IDfy`, `Karza/Perfios`, `Signzy`, `Kroll`, `First Advantage`, `SGS`) and copy/compliance/attribution matrix.
+- [x] **Design Foundation (`DESIGN.md`)**: Locked Obsidian Charcoal (`#060608` / `#282828`) + WeAct Signal Orange (`#F08030`) & Warm Amber (`#FFA352`) token system, AA-compliant contrast roles, typography (`Playfair Display`, `Inter`, `JetBrains Mono`), and compliance guardrails.
+- [x] **Competitive Research (`research/`)**: Reference website benchmarks (`Perfios.ai` live 3D-scroll teardown, `AuthBridge`, `Netrika Consulting`, `IDfy`, `Signzy`, `Kroll`, `First Advantage`, `SGS`) and copy/compliance/attribution matrix.
+- [x] **Perfios-Inspired 3D Scroll & Interactive Architecture**:
+  - Rotating Hero buyer-sector slot (`RotatingHeroWord`) paired with 2-column dark proof-tile showcase
+  - 5-chapter desktop sticky CSS 3D `preserve-3d` WeAct Prism (`WeActPrism3D` + `HomeScrollStory`) with `motion/react` `useScroll` + `useSpring` and reduced-motion fallbacks
+  - Interactive Sector Coverage Switcher (`Field Coverage Across Regulated Sectors`) and Verification Lifecycle Switcher (`We Simplify Your Field Verification Lifecycles`)
+  - Compact interactive 3D prism accent across service landing pages (`/verification-kyc`, `/merchant-onboarding`, `/field-it-support`)
 - [x] **All 7 Routes Built**:
   - `/` — Main landing page
   - `/verification-kyc` — CPV, due diligence, KYC visits, background verification
@@ -17,12 +22,13 @@ Production lead-capture website for **WeAct Global Solutions (OPC) Pvt. Ltd.** �
   - `/thank-you` — Post-submit confirmation + WhatsApp/Call escalation
   - `/privacy` — DPDP Act 2023 privacy notice
 - [x] **Attribution & Enquiry Pipeline**: First-touch UTM capture in `sessionStorage` (`weact_first_touch_utm`), hidden UTM fields, honeypot spam trap, server-side `zod` validation (`/api/enquiry`), Resend email hook, and Netlify Forms static registry (`public/__forms.html`) for exportable CSV enquiry logs.
-- [x] **Logo & Build Verification**:
+- [x] **Build, Lint & Visual/Interactive QA Verification**:
   - WeAct logo added at `public/weact-logo.jpg`
-  - Verified `npm run typecheck` (`tsc --noEmit`), Next.js ESLint/type checks, and `npm run build` (all 7 routes + `/api/enquiry`, `/sitemap.xml`, `/robots.txt` built cleanly)
+  - Verified `npm run typecheck` (`tsc --noEmit`), `npm run lint` (`0` warnings, `0` errors), and `npm run build` (all 13 static/dynamic routes compiled cleanly)
+  - Verified live in browser at desktop (`1440x900`) and mobile (`390x844`): `0` console errors, `0` failed network requests, single-line header navigation, `0` horizontal overflow on mobile, verified interactive tab switching in Sector & Lifecycle consoles, and spot-checked `/verification-kyc`, `/company-profile`, and `/privacy`
 - [ ] **Remaining Go-Live Items**:
   - Drop final `WeAct_Global_Company_Profile_Vendor_Empanelment.pdf` into `public/`
-  - Visual QA at `360px`, `768px`, `1280px`, and `1920px` + Lighthouse mobile audit (>= 90 Performance & Accessibility)
+  - Lighthouse mobile audit (>= 90 Performance & Accessibility)
   - Deploy to Netlify and point `weactglobal.com` DNS
 
 ---

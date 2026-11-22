@@ -8,13 +8,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90",
+          "bg-primary text-primary-foreground font-semibold hover:bg-primary/90",
         accent:
-          "bg-accent text-accent-foreground font-semibold hover:bg-accent/90",
+          "weact-cta-gradient font-semibold",
         outline:
-          "border border-border-strong bg-surface-elevated text-foreground hover:bg-surface",
+          "border border-border-strong bg-surface-elevated text-foreground hover:border-accent/60 hover:bg-surface",
         ghost:
-          "text-foreground hover:bg-surface",
+          "text-foreground hover:bg-surface-elevated",
         link:
           "text-accent-text underline-offset-4 hover:underline p-0 h-auto",
       },

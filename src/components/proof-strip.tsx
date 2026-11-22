@@ -7,7 +7,7 @@ export function ProofStrip() {
       aria-label="PAN-India operational scale"
       className="border-y border-border bg-surface"
     >
-      <div className="mx-auto max-w-[1200px] px-5 py-8 sm:px-8">
+      <div className="mx-auto max-w-[1280px] px-5 py-8 sm:px-8">
         <div className="grid grid-cols-2 gap-6 lg:grid-cols-5 lg:items-center">
           {APPROVED_PROOF_METRICS.map((metric) => (
             <div
@@ -33,7 +33,7 @@ export function ProofStrip() {
                 {SITE_CONFIG.certification}
               </p>
               <p className="text-xs text-muted-foreground">
-                48–72 hr TAT (per SLA)
+                48-72 hr TAT (per SLA)
               </p>
             </div>
           </div>

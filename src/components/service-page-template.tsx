@@ -4,6 +4,7 @@ import { ProofStrip } from "@/components/proof-strip";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CallLink, WhatsAppLink } from "@/components/tracked-contact-links";
 import { Reveal } from "@/components/reveal";
+import { WeActPrism3D } from "@/components/weact-prism-3d";
 import { buttonVariants } from "@/components/ui/button";
 import {
   EPLATFORM_CAPABILITIES,
@@ -43,12 +44,14 @@ export function ServicePageTemplate({
 }: ServicePageProps) {
   return (
     <>
-      {/* 1. Hero */}
-      <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-16">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-accent-text">{buyerLine}</p>
-            <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground leading-[1.1] sm:text-5xl">
+      {/* 1. Hero with Obsidian Vignette + Compact 3D Prism */}
+      <section className="border-b border-border bg-background weact-vignette">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-8 px-5 py-12 sm:px-8 md:py-16 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center rounded-full border border-border-strong bg-surface px-3.5 py-1 text-sm font-medium text-accent-text">
+              {buyerLine}
+            </div>
+            <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground leading-[1.1] sm:text-5xl">
               {headline}
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -71,6 +74,10 @@ export function ServicePageTemplate({
               <CallLink pageLabel={pageLabel} variant="ghost" size="lg" />
             </div>
           </div>
+
+          <div className="hidden lg:flex lg:col-span-4 lg:justify-center">
+            <WeActPrism3D variant="compact" />
+          </div>
         </div>
       </section>
 
@@ -79,10 +86,10 @@ export function ServicePageTemplate({
 
       {/* 3. What WeAct does for this buyer */}
       <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 md:py-20">
+        <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 {deliverablesHeading}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -94,14 +101,14 @@ export function ServicePageTemplate({
               {deliverables.map((item) => (
                 <div
                   key={item.title}
-                  className="flex flex-col rounded-md border border-border bg-surface-elevated p-6"
+                  className="flex flex-col rounded-md border border-border bg-surface p-6 transition-colors duration-150 hover:border-border-strong"
                 >
                   <div className="flex items-start gap-2.5">
                     <Check
                       className="mt-1 size-4 shrink-0 text-accent-text"
                       aria-hidden="true"
                     />
-                    <h3 className="font-display text-lg font-semibold text-foreground leading-snug">
+                    <h3 className="text-lg font-semibold text-foreground leading-snug">
                       {item.title}
                     </h3>
                   </div>
@@ -116,10 +123,10 @@ export function ServicePageTemplate({
       </section>
 
       {/* 4. How it works */}
-      <section className="border-b border-border bg-surface">
-        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 md:py-20">
+      <section className="border-b border-border bg-surface/60">
+        <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="max-w-2xl">
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
               How field execution works
             </h2>
             <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -131,12 +138,12 @@ export function ServicePageTemplate({
             {WORKFLOW_STEPS.map((item) => (
               <li
                 key={item.step}
-                className="rounded-md border border-border bg-surface-elevated p-6"
+                className="rounded-md border border-border bg-surface p-6"
               >
                 <span className="font-mono text-sm font-semibold text-accent-text tabular-nums">
                   {item.step}
                 </span>
-                <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
+                <h3 className="mt-2 text-lg font-semibold text-foreground">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -146,12 +153,12 @@ export function ServicePageTemplate({
             ))}
           </ol>
 
-          <div className="mt-10 overflow-x-auto rounded-md border border-border bg-surface-elevated">
+          <div className="mt-10 overflow-x-auto rounded-md border border-border bg-surface">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-border bg-brand-charcoal text-primary-foreground">
+              <thead className="border-b border-border bg-surface-elevated text-foreground">
                 <tr>
-                  <th className="px-5 py-3.5 font-medium">E-platform capability</th>
-                  <th className="px-5 py-3.5 font-medium">How it supports delivery</th>
+                  <th className="px-5 py-3.5 font-semibold">E-platform capability</th>
+                  <th className="px-5 py-3.5 font-semibold">How it supports delivery</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
@@ -173,14 +180,14 @@ export function ServicePageTemplate({
 
       {/* 5. Compliance & data security */}
       <section className="border-b border-border bg-background">
-        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 md:py-20">
+        <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <div className="inline-flex items-center gap-2 text-sm font-medium text-accent-text">
                 <Lock className="size-4" aria-hidden="true" />
                 <span>Compliance &amp; data security</span>
               </div>
-              <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+              <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 Structured for audit-sensitive teams
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -189,7 +196,7 @@ export function ServicePageTemplate({
 
               {/* 6. Approved sector experience (no unapproved client names) */}
               <div className="mt-8 rounded-md border border-border bg-surface p-5">
-                <h3 className="font-display text-base font-semibold text-foreground">
+                <h3 className="text-base font-semibold text-foreground">
                   Sector experience &amp; NDA references
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -209,9 +216,9 @@ export function ServicePageTemplate({
             </div>
 
             <div className="lg:col-span-7">
-              <div className="overflow-x-auto rounded-md border border-border bg-surface-elevated">
+              <div className="overflow-x-auto rounded-md border border-border bg-surface">
                 <table className="w-full text-left text-sm">
-                  <thead className="border-b border-border bg-surface text-foreground">
+                  <thead className="border-b border-border bg-surface-elevated text-foreground">
                     <tr>
                       <th className="px-5 py-3.5 font-semibold">Control area</th>
                       <th className="px-5 py-3.5 font-semibold">Operational practice</th>
@@ -237,16 +244,16 @@ export function ServicePageTemplate({
       </section>
 
       {/* 7 & 8. Enquiry form + WhatsApp + Call + Company Profile download */}
-      <section id="enquiry" className="scroll-mt-20 bg-surface">
-        <div className="mx-auto max-w-[1200px] px-5 py-14 sm:px-8 md:py-20">
+      <section id="enquiry" className="scroll-mt-20 bg-surface/60">
+        <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-20">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <EnquiryForm defaultService={defaultServiceValue} />
             </div>
 
             <div className="flex flex-col gap-6 lg:col-span-5">
-              <div className="rounded-lg border border-border bg-surface-elevated p-6">
-                <h3 className="font-display text-lg font-semibold text-foreground">
+              <div className="rounded-lg border border-border bg-surface p-6">
+                <h3 className="text-lg font-semibold text-foreground">
                   Prefer a direct conversation?
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -265,12 +272,12 @@ export function ServicePageTemplate({
                 </div>
               </div>
 
-              <div className="rounded-lg border border-border bg-surface-elevated p-6">
+              <div className="rounded-lg border border-border bg-surface p-6">
                 <div className="flex items-center gap-2 text-sm font-medium text-accent-text">
                   <FileText className="size-4" aria-hidden="true" />
                   <span>Vendor empanelment</span>
                 </div>
-                <h3 className="mt-2 font-display text-lg font-semibold text-foreground">
+                <h3 className="mt-2 text-lg font-semibold text-foreground">
                   Download the Company Profile
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

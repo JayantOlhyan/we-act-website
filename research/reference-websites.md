@@ -57,8 +57,28 @@ Compiled for `weactglobal.com` (Jayant Systems). Every structural and UX decisio
 
 | Decision | Rationale from Benchmarks |
 |---|---|
-| **Charcoal `#282828` + WeAct Orange `#F08030` on warm white `#FDFDFB`** | Matches WeAct's official logo while projecting SGS/Netrika-level institutional authority. |
+| **Obsidian Charcoal `#060608` + WeAct Orange `#F08030` / Warm Amber `#FFA352`** | Adapts Perfios's dark-obsidian institutional presence strictly into WeAct's charcoal-and-orange brand identity. |
+| **Editorial Serif Display (`Playfair Display`) + Clean Sans (`Inter`) + `JetBrains Mono`** | Mirrors Perfios's authoritative C-suite serif display contrast paired with scannable operational UI and tabular metrics. |
+| **Persistent 3D Extruded WeAct Prism (`preserve-3d` + `useScroll`)** | Adapts Perfios's scrolling 3D monolith across 5 story chapters (gliding left-to-right, tilting in perspective, accented by a diagonal orange hairline beam). |
 | **Dedicated buyer routes (`/verification-kyc`, `/merchant-onboarding`, `/field-it-support`)** | Mirrors AuthBridge & IDfy: LinkedIn visitors from BFSI, fintech, or enterprise IT land directly on their exact workflow. |
-| **Structured specification tables for E-Platform & Security** | Mirrors Karza/Kroll: procurement teams want scannable control areas (ERP, geo-tagged evidence, NDA, ISO 9001:2015), not fluff. |
+| **Interactive Switcher Consoles (2px orange bottom-border active tab)** | Adapts Perfios's industry & lifecycle vertical switchers for sector selection and verification lifecycle exploration. |
 | **Direct WhatsApp + Phone + Short Enquiry Form** | Adapted to Indian B2B reality (Neeraj handles enquiries directly) with mobile-first tap targets for LinkedIn mobile traffic. |
 | **DPDP Act 2023 consent notice + `/privacy`** | Matches top Indian BFSI vendor standards and satisfies statutory compliance from day one. |
+
+---
+
+## 4. Perfios.ai Live Visual & 3D Scroll Teardown (22 Nov 2026)
+
+Audited at `1440x900` on `https://perfios.ai/?ref_page=home` to derive structural, typographic, and 3D choreography patterns for WeAct Global:
+
+1. **Hero Composition (50/50 Asymmetric Split):**
+   - Left: compact dark pill badge + bold Editorial Serif H1 paired with a vertical rotating buyer-sector slot + 3-line value statement + horizontal gradient CTA (`#F08030 -> #FFA352` in WeAct's palette).
+   - Right: 2-column dark rounded-tile grid (`#101013` / `#17171B` fill, `1px` border) showcasing verified scale & compliance facts instead of unapproved client logos.
+2. **Dark Obsidian Surface + Subtle Radial Vignette:**
+   - Alternates deep `#060608` ground with subtle warm radial vignette illumination behind the 3D monolith so negative space (`~40-50%` per band) gives the geometry breathing room.
+3. **Persistent 3D Monolith Across Scroll Chapters:**
+   - Rather than heavy `<canvas>` WebGL overhead, CSS 3D `preserve-3d` extruded planes driven by `motion/react` `useScroll` + `useSpring` move the brand totem across chapters: right side for intro -> receding opposite the skewed E-platform portal -> left margin beside the Sector Switcher -> right third beside the Lifecycle Switcher -> bold closing perspective beside the CTA.
+4. **Signature Active Tab Geometry:**
+   - Both vertical switchers highlight the active selection with a subtle elevated dark card surface and a razor-sharp `2px` bottom accent border (`var(--accent)`) rather than loud full-box fills.
+5. **Footer Framing:**
+   - Top full-width dark empanelment banner framed by a crisp `1px` accent border, followed by certification strip, multi-column sitemap, and registered corporate credentials.

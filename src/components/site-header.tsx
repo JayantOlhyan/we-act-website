@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
@@ -14,24 +15,28 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-xs">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
+      <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between gap-4 px-5 sm:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2.5 text-foreground"
+          className="flex shrink-0 items-center gap-2.5 text-foreground whitespace-nowrap"
           aria-label="WeAct Global home"
         >
-          <span
-            aria-hidden="true"
-            className="flex size-8 items-center justify-center rounded-sm bg-brand-charcoal text-xs font-bold text-primary-foreground"
-          >
-            <span className="text-accent">W</span>A
+          <span className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-white p-0.5">
+            <Image
+              src="/weact-logo.jpg"
+              alt="WeAct Global logo"
+              width={32}
+              height={32}
+              className="h-full w-full object-contain"
+              priority
+            />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-bold tracking-tight text-foreground">
+            <span className="font-sans text-base font-bold tracking-tight text-foreground whitespace-nowrap">
               WeAct Global
             </span>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
               ISO 9001:2015 Certified
             </span>
           </span>
@@ -48,10 +53,10 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-sm px-3 py-2 text-sm font-medium transition-colors duration-150",
+                  "whitespace-nowrap rounded-sm px-3 py-2 text-sm font-medium transition-colors duration-150",
                   isActive
                     ? "bg-accent-subtle text-accent-text"
-                    : "text-foreground/85 hover:bg-surface hover:text-foreground"
+                    : "text-foreground/85 hover:bg-surface-elevated hover:text-foreground"
                 )}
               >
                 {link.label}
@@ -60,7 +65,7 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2.5 lg:flex">
+        <div className="hidden shrink-0 items-center gap-3 lg:flex">
           <a
             href={SITE_CONFIG.phoneHref}
             onClick={() =>
@@ -69,14 +74,14 @@ export function SiteHeader() {
                 label: "header",
               })
             }
-            className="inline-flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground tabular-nums"
+            className="hidden items-center gap-1.5 whitespace-nowrap px-2 py-2 text-sm font-medium text-muted-foreground transition-colors duration-150 hover:text-foreground tabular-nums xl:inline-flex"
           >
             <Phone className="size-4 text-accent-text" aria-hidden="true" />
             <span>{SITE_CONFIG.phoneDisplay}</span>
           </a>
           <Link
             href="#enquiry"
-            className={buttonVariants({ variant: "default", size: "sm" })}
+            className={buttonVariants({ variant: "accent", size: "sm" })}
           >
             Request verification
           </Link>
@@ -101,7 +106,7 @@ export function SiteHeader() {
       {mobileOpen ? (
         <div
           id="mobile-nav"
-          className="border-t border-border bg-surface-elevated px-5 py-4 lg:hidden"
+          className="border-t border-border bg-surface px-5 py-4 lg:hidden"
         >
           <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => {
@@ -115,7 +120,7 @@ export function SiteHeader() {
                     "min-h-11 flex items-center rounded-sm px-3 text-base font-medium",
                     isActive
                       ? "bg-accent-subtle text-accent-text"
-                      : "text-foreground hover:bg-surface"
+                      : "text-foreground hover:bg-surface-elevated"
                   )}
                 >
                   {link.label}
@@ -127,7 +132,7 @@ export function SiteHeader() {
             <Link
               href="#enquiry"
               onClick={() => setMobileOpen(false)}
-              className={buttonVariants({ variant: "default" })}
+              className={buttonVariants({ variant: "accent" })}
             >
               Request verification
             </Link>

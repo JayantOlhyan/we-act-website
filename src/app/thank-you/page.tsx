@@ -20,9 +20,9 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
   const matchedService = SERVICE_OPTIONS.find((s) => s.value === params.service);
 
   return (
-    <section className="bg-background">
+    <section className="bg-background weact-vignette">
       <div className="mx-auto max-w-[760px] px-5 py-16 sm:px-8 md:py-24">
-        <div className="rounded-lg border border-border bg-surface-elevated p-7 sm:p-10">
+        <div className="rounded-lg border border-border bg-surface p-7 sm:p-10">
           <div className="flex items-center gap-3 text-success">
             <CheckCircle2 className="size-7 shrink-0" aria-hidden="true" />
             <span className="font-mono text-sm font-medium">Enquiry logged</span>
@@ -41,8 +41,8 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
             at {SITE_CONFIG.email}. Expect a direct response within one business day.
           </p>
 
-          <div className="mt-8 rounded-md border border-border bg-surface p-5">
-            <h2 className="font-display text-base font-semibold text-foreground">
+          <div className="mt-8 rounded-md border border-border bg-background/60 p-5">
+            <h2 className="text-base font-semibold text-foreground">
               Need an immediate PIN-code check or urgent SLA discussion?
             </h2>
             <p className="mt-1.5 text-sm text-muted-foreground">

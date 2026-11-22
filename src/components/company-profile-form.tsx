@@ -122,7 +122,7 @@ export function CompanyProfileForm() {
 
   if (unlocked) {
     return (
-      <div className="rounded-lg border border-success/40 bg-surface-elevated p-6 sm:p-8">
+      <div className="rounded-lg border border-success/40 bg-surface p-6 sm:p-8">
         <div className="flex items-start gap-3">
           <CheckCircle2
             className="mt-0.5 size-6 shrink-0 text-success"
@@ -170,12 +170,12 @@ export function CompanyProfileForm() {
   }
 
   return (
-    <div className="rounded-lg border border-border bg-surface-elevated p-6 sm:p-8">
+    <div className="rounded-lg border border-border bg-surface p-6 sm:p-8">
       <div className="flex items-center gap-2.5 text-sm font-medium text-accent-text">
         <FileText className="size-4" aria-hidden="true" />
         <span>Vendor empanelment PDF (5 pages)</span>
       </div>
-      <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground">
+      <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
         Download the WeAct Global Company Profile
       </h2>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -271,11 +271,11 @@ export function CompanyProfileForm() {
           </div>
         </div>
 
-        <div className="rounded-sm border border-border bg-surface p-3.5">
+        <div className="rounded-sm border border-border bg-background/60 p-3.5">
           <label className="flex items-start gap-3 text-sm leading-snug text-foreground cursor-pointer">
             <input
               type="checkbox"
-              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-primary"
+              className="mt-0.5 size-4 shrink-0 rounded-xs border-border-strong accent-accent"
               aria-invalid={Boolean(errors.consent)}
               {...register("consent")}
             />

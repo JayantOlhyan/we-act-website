@@ -19,8 +19,8 @@ const PROFILE_CONTENTS = [
 
 export default function CompanyProfilePage() {
   return (
-    <section className="bg-background">
-      <div className="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 md:py-16">
+    <section className="bg-background weact-vignette">
+      <div className="mx-auto max-w-[1280px] px-5 py-12 sm:px-8 md:py-16">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
             <p className="text-sm font-medium text-accent-text">
@@ -67,7 +67,7 @@ export default function CompanyProfilePage() {
             </div>
 
             <div className="mt-6">
-              <h2 className="font-display text-base font-semibold text-foreground">
+              <h2 className="text-base font-semibold text-foreground">
                 Inside the PDF
               </h2>
               <ul className="mt-3 space-y-2.5">
