@@ -19,6 +19,7 @@ Production lead-capture website for **WeAct Global Solutions (OPC) Pvt. Ltd.** �
   - 5-chapter desktop sticky CSS 3D `preserve-3d` WeAct Prism (`WeActPrism3D` + `HomeScrollStory`) with `motion/react` `useScroll` + `useSpring`, Field-to-ERP Architecture Flow diagram, interactive Sector Switcher (with live photography), and interactive Verification Lifecycle Console (with live `SPECIMEN` dossier checkpoints)
   - Interactive **PAN-India PIN-Code & Zone Coverage Explorer** (`IndiaCoverageConsole`) with 4 regional operating zones and an interactive SVG India PIN-grid dispatch map
   - ISO 9001:2015 Quality & Security Controls matrix paired with the statutory **Company at a Glance** ledger
+  - **Calm B2B Motion & Immersive Route Transitions**: Slow, weighted quintic full-page glide (`SmoothScrollProvider`, `1.05s-1.55s`) on every `"Request verification"` / `#enquiry` trigger (including cross-page `/#enquiry` arrival highlight + auto-focus) and airy daylight page-to-page transitions (`src/app/template.tsx` with `0.78s` gentle lift & hairline orange progress sweep), fully honoring `prefers-reduced-motion`
 - [x] **All 7 Routes Built**:
   - `/` — Main landing page
   - `/verification-kyc` — CPV, due diligence, KYC visits, background verification

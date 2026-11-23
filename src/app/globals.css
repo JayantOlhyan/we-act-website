@@ -183,6 +183,14 @@
   background-color: var(--surface-elevated);
   border: 1px solid var(--border);
   box-shadow: 0 8px 28px -12px color-mix(in oklch, var(--foreground) 7%, transparent);
+  transition: border-color 450ms ease-out, box-shadow 450ms ease-out;
+}
+
+/* Soft calm arrival highlight after smooth full-page glide to #enquiry */
+.weact-enquiry-arrived {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 18%, transparent),
+    0 12px 32px -12px color-mix(in oklch, var(--foreground) 10%, transparent);
 }
 
 /* CSS 3D stage helpers */

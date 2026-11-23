@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AttributionTracker } from "@/components/attribution-tracker";
 import { AnalyticsScripts } from "@/components/analytics-scripts";
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { SITE_CONFIG } from "@/lib/site-config";
 import "./globals.css";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <AttributionTracker />
+        <SmoothScrollProvider />
         <AnalyticsScripts />
         <SiteHeader />
         <main id="main-content">{children}</main>
